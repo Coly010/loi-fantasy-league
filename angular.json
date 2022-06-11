@@ -2,6 +2,10 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "admin-panel": "apps/admin-panel",
+    "admin-panel-e2e": "apps/admin-panel-e2e",
+    "admin-panel-login": "libs/admin-panel/login",
+    "admin-panel-shell": "libs/admin-panel/shell",
     "game-client": "apps/game-client",
     "game-client-e2e": "apps/game-client-e2e",
     "shared-data-access-league": "libs/shared/data-access/league"
