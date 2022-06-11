@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "loi-fantasy": {
+      "hosting": {
+        "admin-panel": [
+          "admin-loi-fantasy"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "loi-fantasy"
+  }
+}

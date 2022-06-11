@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { createUser } from '@lfl/shared/data-access/auth';
 
 @Component({
   selector: 'lfl-register',
@@ -8,13 +10,24 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         <div class="flex flex-col">
           <mat-form-field appearance="outline">
             <mat-label>Email Address</mat-label>
-            <input matInput placeholder="Email Address" />
+            <input
+              matInput
+              [(ngModel)]="emailAddress"
+              placeholder="Email Address"
+            />
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput type="password" placeholder="Password" />
+            <input
+              matInput
+              [(ngModel)]="password"
+              type="password"
+              placeholder="Password"
+            />
           </mat-form-field>
-          <button mat-raised-button color="primary">Sign Up</button>
+          <button mat-raised-button color="primary" (click)="register()">
+            Sign Up
+          </button>
           <div class="signup-link p-2">
             <p class="text-center">
               Have an account? <br />
@@ -30,4 +43,17 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RegisterComponent {}
+export class RegisterComponent {
+  emailAddress: string | undefined;
+  password: string | undefined;
+
+  constructor(private store: Store) {}
+
+  register() {
+    if (this.emailAddress && this.password) {
+      this.store.dispatch(
+        createUser({ emailAddress: this.emailAddress, password: this.password })
+      );
+    }
+  }
+}

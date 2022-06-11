@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Route, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { ShellComponent } from './shell/shell.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
-export const adminPanelShellRoutes: Route[] = [];
+import {
+  AuthGuard,
+  SharedDataAccessAuthModule,
+} from '@lfl/shared/data-access/auth';
 
 @NgModule({
   imports: [
@@ -24,10 +26,19 @@ export const adminPanelShellRoutes: Route[] = [];
                 (m) => m.AdminPanelLoginModule
               ),
           },
-          { path: '', pathMatch: 'full', redirectTo: '/login' },
+          {
+            path: 'dashboard',
+            loadChildren: () =>
+              import('@lfl/admin-panel/dashboard').then(
+                (m) => m.AdminPanelDashboardModule
+              ),
+            canActivate: [AuthGuard],
+          },
+          { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
         ],
       },
     ]),
+    SharedDataAccessAuthModule,
   ],
   declarations: [ShellComponent],
   exports: [ShellComponent],

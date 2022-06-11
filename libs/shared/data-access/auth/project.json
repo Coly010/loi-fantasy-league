@@ -1,15 +1,13 @@
 {
   "projectType": "library",
-  "sourceRoot": "libs/admin-panel/shell/src",
+  "sourceRoot": "libs/shared/data-access/auth/src",
   "prefix": "lfl",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/admin-panel/shell"
-      ],
+      "outputs": ["coverage/libs/shared/data-access/auth"],
       "options": {
-        "jestConfig": "libs/admin-panel/shell/jest.config.ts",
+        "jestConfig": "libs/shared/data-access/auth/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -17,8 +15,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/admin-panel/shell/**/*.ts",
-          "libs/admin-panel/shell/**/*.html"
+          "libs/shared/data-access/auth/**/*.ts",
+          "libs/shared/data-access/auth/**/*.html"
         ]
       }
     }

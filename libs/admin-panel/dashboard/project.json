@@ -1,15 +1,13 @@
 {
   "projectType": "library",
-  "sourceRoot": "libs/admin-panel/shell/src",
+  "sourceRoot": "libs/admin-panel/dashboard/src",
   "prefix": "lfl",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/admin-panel/shell"
-      ],
+      "outputs": ["coverage/libs/admin-panel/dashboard"],
       "options": {
-        "jestConfig": "libs/admin-panel/shell/jest.config.ts",
+        "jestConfig": "libs/admin-panel/dashboard/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -17,8 +15,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/admin-panel/shell/**/*.ts",
-          "libs/admin-panel/shell/**/*.html"
+          "libs/admin-panel/dashboard/**/*.ts",
+          "libs/admin-panel/dashboard/**/*.html"
         ]
       }
     }

@@ -15,8 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@lfl/admin-panel/dashboard": ["libs/admin-panel/dashboard/src/index.ts"],
       "@lfl/admin-panel/login": ["libs/admin-panel/login/src/index.ts"],
       "@lfl/admin-panel/shell": ["libs/admin-panel/shell/src/index.ts"],
+      "@lfl/shared/data-access/auth": [
+        "libs/shared/data-access/auth/src/index.ts"
+      ],
       "@lfl/shared/data-access/league": [
         "libs/shared/data-access/league/src/index.ts"
       ]

@@ -94,6 +94,16 @@
         "jestConfig": "apps/admin-panel/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "deploy": {
+      "executor": "@angular/fire:deploy",
+      "options": {
+        "prerender": false,
+        "ssr": false,
+        "browserTarget": "admin-panel:build:production",
+        "firebaseProject": "loi-fantasy",
+        "firebaseHostingSite": "admin-loi-fantasy"
+      }
     }
   },
   "tags": []
